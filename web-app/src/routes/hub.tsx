@@ -249,12 +249,17 @@ function Hub() {
             </div>
           )}
           {isDownloaded ? (
-            <Button size="sm" onClick={() => handleUseModel(modelId)}>
+            <Button
+              size="sm"
+              data-test-id={`hub-model-${modelId}`}
+              onClick={() => handleUseModel(modelId)}
+            >
               Use
             </Button>
           ) : (
             <Button
               size="sm"
+              data-test-id={`hub-model-${modelId}`}
               onClick={() => downloadModel(modelId)}
               className={cn(isDownloading && 'hidden')}
               ref={isRecommended ? downloadButtonRef : undefined}

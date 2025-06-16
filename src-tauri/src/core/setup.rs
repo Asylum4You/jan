@@ -248,6 +248,18 @@ pub fn setup_sidecar(app: &App) -> Result<(), String> {
             #[cfg(target_os = "windows")]
             {
                 cmd = cmd.current_dir(app_handle_for_spawn.path().resource_dir().unwrap());
+                // dll files located in binaries folder in debug build
+                #[cfg(debug_assertions)]
+                {
+                    // In debug mode, use the development path
+                    cmd = cmd.current_dir(
+                        app_handle_for_spawn
+                            .path()
+                            .resource_dir()
+                            .unwrap()
+                            .join("binaries"),
+                    );
+                }
             }
 
             #[cfg(not(target_os = "windows"))]
