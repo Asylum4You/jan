@@ -154,9 +154,15 @@ async fn start_mcp_server<R: Runtime>(
             cmd.arg("run");
             cmd.env("UV_CACHE_DIR", cache_dir.to_str().unwrap().to_string());
         }
-        #[cfg(windows)]
+        #[cfg(target_os = "windows")]
         {
+            log::info!("Setting creation flags for Windows to prevent shell window");
             cmd.creation_flags(0x08000000); // CREATE_NO_WINDOW: prevents shell window on Windows
+        }
+        let platform = tauri_plugin_os::platform();
+        if platform == "windows" {
+            log::info!("Running on Windows, setting creation flags to prevent shell window !! this for runtime");
+            
         }
         let app_path_str = app_path.to_str().unwrap().to_string();
         let log_file_path = format!("{}/logs/app.log", app_path_str);
