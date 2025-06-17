@@ -136,14 +136,14 @@ async fn start_mcp_server<R: Runtime>(
     let bin_path = exe_parent_path.to_path_buf();
     if let Some((command, args, envs)) = extract_command_args(&config) {
         let mut cmd = Command::new(command.clone());
-        if command.clone() == "npx" {
-            let mut cache_dir = app_path.clone();
-            cache_dir.push(".npx");
-            let bun_x_path = format!("{}/bun", bin_path.display());
-            cmd = Command::new(bun_x_path);
-            cmd.arg("x");
-            cmd.env("BUN_INSTALL", cache_dir.to_str().unwrap().to_string());
-        }
+        // if command.clone() == "npx" {
+        //     let mut cache_dir = app_path.clone();
+        //     cache_dir.push(".npx");
+        //     let bun_x_path = format!("{}/bun", bin_path.display());
+        //     cmd = Command::new(bun_x_path);
+        //     cmd.arg("x");
+        //     cmd.env("BUN_INSTALL", cache_dir.to_str().unwrap().to_string());
+        // }
 
         if command.clone() == "uvx" {
             let mut cache_dir = app_path.clone();
@@ -158,11 +158,6 @@ async fn start_mcp_server<R: Runtime>(
         {
             log::info!("Setting creation flags for Windows to prevent shell window");
             cmd.creation_flags(0x08000000); // CREATE_NO_WINDOW: prevents shell window on Windows
-        }
-        let platform = tauri_plugin_os::platform();
-        if platform == "windows" {
-            log::info!("Running on Windows, setting creation flags to prevent shell window !! this for runtime");
-            
         }
         let app_path_str = app_path.to_str().unwrap().to_string();
         let log_file_path = format!("{}/logs/app.log", app_path_str);
