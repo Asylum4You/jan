@@ -29,7 +29,7 @@ export default function DeleteMCPServerConfirm({
         <DialogHeader>
           <DialogTitle>{t('mcp-servers:deleteServer.title')}</DialogTitle>
           <DialogDescription>
-            {t('mcp-servers:deleteServer.description', { serverName: '' })}
+            {t('mcp-servers:deleteServer.description', { serverName })}
             <span className="font-medium text-main-view-fg">{serverName}</span>?
           </DialogDescription>
         </DialogHeader>
