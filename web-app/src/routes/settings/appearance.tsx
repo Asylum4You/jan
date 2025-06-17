@@ -139,7 +139,7 @@ function Appareances() {
                         {
                           id: 'code-block-style',
                           description: t(
-                            'settings.appearance.resetCodeBlockSuccessDesc'
+                            'settings:appearance.resetCodeBlockSuccessDesc'
                           ),
                         }
                       )
