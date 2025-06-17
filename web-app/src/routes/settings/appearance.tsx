@@ -91,7 +91,7 @@ function Appareances() {
                         {
                           id: 'reset-appearance',
                           description: t(
-                            'settings.appearance.resetAppearanceSuccessDesc'
+                            'settings:appearance.resetAppearanceSuccessDesc'
                           ),
                         }
                       )
