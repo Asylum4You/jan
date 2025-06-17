@@ -7,7 +7,7 @@
     },
     "others": {
       "spellCheck": "Kiểm tra chính tả",
-      "spellCheckDesc": "Bật để bật kiểm tra chính tả trong ô nhập trò chuyện.",
+      "spellCheckDesc": "Bật kiểm tra chính tả trong ô nhập trò chuyện.",
       "resetFactory": "Đặt lại về cài đặt gốc",
       "resetFactoryDesc": "Khôi phục ứng dụng về trạng thái ban đầu, xóa tất cả các mô hình và lịch sử trò chuyện. Hành động này không thể đảo ngược và chỉ được khuyến nghị nếu ứng dụng bị hỏng"
     },
